@@ -3,12 +3,10 @@ import { CaixaDeProdutos } from "./style";
 
 const MostrarProdutos = ({ products }) => {
   return (
-    <CaixaDeProdutos largura={"400px"} altura={"400px"}>
-      <ul>
-        {products.map((item) => (
-          <Produto item={item} />
-        ))}
-      </ul>
+    <CaixaDeProdutos largura={"500px"} altura={"450px"}>
+      {products.map((item) => (
+        <Produto item={item} />
+      ))}
     </CaixaDeProdutos>
   );
 };

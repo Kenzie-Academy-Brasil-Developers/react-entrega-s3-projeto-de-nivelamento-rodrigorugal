@@ -33,7 +33,7 @@ function App() {
 
   return (
     <Corpo>
-      <CadastroDeProdutos setProducts={setProducts} />
+      <CadastroDeProdutos products={products} setProducts={setProducts} />
       <MostrarProdutos products={products} />
     </Corpo>
   );

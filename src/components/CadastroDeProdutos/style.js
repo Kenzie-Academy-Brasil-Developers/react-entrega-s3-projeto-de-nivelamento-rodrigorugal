@@ -5,8 +5,6 @@ export const Formulario = styled.form`
   height: 600px;
   background-color: #e3e3e3;
   border-radius: 10px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
   display: flex;
   flex-direction: column;
@@ -68,7 +66,7 @@ export const TitleForm = styled.div`
 
 export const Button = styled.button`
   width: 80%;
-  height: 30px;
+  height: ${(props) => (props.altura ? props.altura : "30px")};
   border: 1.5px solid #0a0a0a;
   background-color: transparent;
   cursor: pointer;

@@ -1,8 +1,9 @@
-const BotaoAddCarro = () => {
+import { BotaoCarrinho } from "./style";
+const BotaoAddCarro = ({ altura, largura }) => {
   return (
-    <div>
-      <div></div>
-    </div>
+    <BotaoCarrinho type="submit" altura={altura}>
+      Adicionar ao carrinho
+    </BotaoCarrinho>
   );
 };
 
