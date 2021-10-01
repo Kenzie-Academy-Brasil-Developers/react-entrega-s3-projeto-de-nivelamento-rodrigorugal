@@ -11,7 +11,7 @@ export const ContainerCarrinho = styled.div`
 export const ListaUl = styled.ul`
   background-color: #e3e3e3;
   max-height: 94%;
-  width: 100%;
+  min-width: 100%;
   overflow-y: auto;
   display: flex;
   flex-wrap: wrap;

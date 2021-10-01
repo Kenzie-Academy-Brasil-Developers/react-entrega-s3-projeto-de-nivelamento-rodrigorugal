@@ -79,11 +79,11 @@ const CadastroDeProdutos = ({ products, setProducts }) => {
           type="button"
           onClick={() =>
             handleForm({
-              code: code,
+              code: Number(code),
               name: name,
               description: description,
-              price: price,
-              discount: discount,
+              price: Number(price),
+              discount: Number(discount),
             })
           }
         >

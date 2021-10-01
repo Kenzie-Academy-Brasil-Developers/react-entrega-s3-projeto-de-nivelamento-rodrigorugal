@@ -7,7 +7,7 @@ export const ItemLista = styled.li`
   height: 230px;
   margin: 5px;
   padding: 5px;
-  width: 100;
+  min-width: 95%;
   cursor: pointer;
 
   display: flex;
