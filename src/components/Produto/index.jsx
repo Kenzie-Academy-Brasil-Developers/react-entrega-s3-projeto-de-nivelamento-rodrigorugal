@@ -1,39 +1,27 @@
-import { useState } from "react";
 import BotaoAddCarro from "../BotaoAddCarro";
 import { Caixa, ItemLista } from "./style";
 
-const Produto = ({ item: { name, description, price, discount } }) => {
-  const AddCarro = (data) => {};
-
-  const [mostra, setMostra] = useState(true);
-
+const Produto = ({ setCarro, carro, item }) => {
   const MostraDescricao = () => {
-    setMostra(!mostra);
+    setCarro([...carro, item]);
   };
 
   return (
-    <ItemLista onClick={MostraDescricao}>
-      <h3>{name}</h3>
-      {mostra ? (
-        <Caixa altura={"100px"}>
-          <p className="valor">
-            <span>R${price}</span>
-          </p>
-          <p className="desconto">
-            Desconto <span>R${discount}</span>
-          </p>
+    <ItemLista>
+      <h3>{item.name}</h3>
 
-          <BotaoAddCarro
-            type="submit"
-            altura={"35px"}
-            onClick={AddCarro}
-          ></BotaoAddCarro>
-        </Caixa>
-      ) : (
-        <Caixa rolagem={"auto"}>
-          <p>{description}</p>
-        </Caixa>
-      )}
+      <Caixa altura={"50px"}>
+        <p className="valor">
+          <span>R${item.price}</span>
+        </p>
+        <p className="desconto">
+          Desconto <span>R${item.discount}</span>
+        </p>
+      </Caixa>
+      <BotaoAddCarro
+        altura={"35px"}
+        MostraDescricao={MostraDescricao}
+      ></BotaoAddCarro>
     </ItemLista>
   );
 };

@@ -2,8 +2,10 @@ import { useState } from "react";
 import CadastroDeProdutos from "./components/CadastroDeProdutos";
 import MostrarProdutos from "./components/MostrarProdutos";
 import { Corpo } from "./style/styleApp";
+import CaixaCarrinho from "./components/CaixaCarrinho";
 
 function App() {
+  const [carro, setCarro] = useState([]);
   const [products, setProducts] = useState([
     {
       code: 10,
@@ -34,7 +36,9 @@ function App() {
   return (
     <Corpo>
       <CadastroDeProdutos products={products} setProducts={setProducts} />
-      <MostrarProdutos products={products} />
+
+      <MostrarProdutos carro={carro} setCarro={setCarro} products={products} />
+      <CaixaCarrinho carro={carro} setCarro={setCarro} />
     </Corpo>
   );
 }

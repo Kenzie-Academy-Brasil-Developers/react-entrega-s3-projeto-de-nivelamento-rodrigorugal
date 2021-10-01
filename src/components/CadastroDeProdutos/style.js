@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const Formulario = styled.form`
-  width: 300px;
-  height: 600px;
+  width: 30%;
+  max-width: 300px;
+  height: 100%;
   background-color: #e3e3e3;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 
   display: flex;
   flex-direction: column;
@@ -72,7 +73,6 @@ export const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    border-color: brown;
     background-color: #0a0a0a22;
   }
 `;

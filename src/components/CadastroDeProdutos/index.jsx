@@ -1,84 +1,94 @@
+import { useState } from "react";
 import { Button, Formulario, InputStyle, Secao, TitleForm } from "./style";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 
 const CadastroDeProdutos = ({ products, setProducts }) => {
-  const schema = yup.object().shape({
-    code: yup.string().required("Campo obrigatório"),
-    name: yup.string().required("Campo obrigatório"),
-    description: yup.string().required("Campo obrigatório"),
-    price: yup.string().required("Campo obrigatório"),
-    discount: yup.string().required("Campo obrigatório"),
-  });
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(schema) });
+  const [code, setCode] = useState(0);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState(0.0);
+  const [discount, setDiscount] = useState(0.0);
 
   const handleForm = (data) => {
     console.log(data);
     setProducts([...products, data]);
+
+    setCode(0);
+    setName("");
+    setDescription("");
+    setPrice(0.0);
+    setDiscount(0.0);
   };
 
   return (
-    <Formulario onSubmit={handleSubmit(handleForm)}>
+    <Formulario>
       <TitleForm>
         <h1>Cadastro de produtos</h1>
       </TitleForm>
 
       <Secao>
+        <label>Codigo do produto</label>
         <InputStyle>
           <input
-            type="text"
+            type="number"
             placeholder="Codigo do produto"
-            {...register("code")}
-            error={!!errors.code}
-            helperText={errors.code?.message}
+            value={code}
+            onChange={(ev) => setCode(ev.target.value)}
           />
         </InputStyle>
+        <label>Nome</label>
         <InputStyle>
           <input
             type="text"
             placeholder="Nome"
-            {...register("name")}
-            error={!!errors.name}
-            helperText={errors.name?.message}
+            value={name}
+            onChange={(ev) => setName(ev.target.value)}
           />
         </InputStyle>
+        <label>Descrição</label>
         <InputStyle>
           <input
             type="text"
             placeholder="Descrição"
-            {...register("description")}
-            error={!!errors.description}
-            helperText={errors.description?.message}
+            value={description}
+            onChange={(ev) => setDescription(ev.target.value)}
           />
         </InputStyle>
+        <label>Preço</label>
+
         <InputStyle>
           <input
             type="number"
             placeholder="Preço"
-            {...register("price")}
-            error={!!errors.price}
-            helperText={errors.price?.message}
+            value={price}
+            onChange={(ev) => setPrice(ev.target.value)}
           />
         </InputStyle>
+        <label>Desconto</label>
         <InputStyle>
           <input
             type="number"
             placeholder="Desconto"
-            {...register("discount")}
-            error={!!errors.discount}
-            helperText={errors.discount?.message}
+            value={discount}
+            onChange={(ev) => setDiscount(ev.target.value)}
           />
         </InputStyle>
       </Secao>
 
       <Secao altura={"10%"}>
-        <Button type="submit">Cadastrar</Button>
+        <Button
+          type="button"
+          onClick={() =>
+            handleForm({
+              code: code,
+              name: name,
+              description: description,
+              price: price,
+              discount: discount,
+            })
+          }
+        >
+          Cadastrar
+        </Button>
       </Secao>
     </Formulario>
   );

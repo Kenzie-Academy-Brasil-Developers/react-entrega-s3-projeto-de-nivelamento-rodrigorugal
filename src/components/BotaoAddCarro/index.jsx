@@ -1,7 +1,7 @@
 import { BotaoCarrinho } from "./style";
-const BotaoAddCarro = ({ altura, largura }) => {
+const BotaoAddCarro = ({ altura, MostraDescricao }) => {
   return (
-    <BotaoCarrinho type="submit" altura={altura}>
+    <BotaoCarrinho onClick={MostraDescricao} altura={altura}>
       Adicionar ao carrinho
     </BotaoCarrinho>
   );

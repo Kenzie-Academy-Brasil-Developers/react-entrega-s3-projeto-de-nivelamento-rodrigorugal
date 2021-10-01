@@ -3,16 +3,12 @@ import styled from "styled-components";
 export const ItemLista = styled.li`
   text-align: center;
   background-color: #a3a3a3;
-  min-width: 155px;
-  max-width: 155px;
+
   height: 230px;
   margin: 5px;
   padding: 5px;
-  border-radius: 20px;
-  border: 1px solid red;
+  width: 100;
   cursor: pointer;
-  position: relative;
-  overflow-y: auto;
 
   display: flex;
   flex-direction: column;
@@ -24,16 +20,22 @@ export const ItemLista = styled.li`
     font-weight: 500;
     font-style: oblique;
     margin-bottom: 10px;
+    height: 100px;
   }
   .caixa_de_info {
     height: 150px;
   }
 
   .valor {
-    color: #0b3448;
+    background-color: #0b3448;
+    color: #e3e3e3;
+    padding: 3px 0;
+    width: 100%;
   }
   .desconto {
-    color: #c5c5c5;
+    background-color: orange;
+    padding: 3px;
+    color: #0b3448;
   }
 `;
 
